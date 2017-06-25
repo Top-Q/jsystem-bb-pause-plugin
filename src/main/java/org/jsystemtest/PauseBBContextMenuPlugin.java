@@ -82,9 +82,9 @@ public class PauseBBContextMenuPlugin implements ContextMenuPlugin, ExtendTestLi
 	@Override
 	public String getItemName() {
 		if (onSelectedTests) {
-			return "Continue in this test";
+			return "Continue in This Item";
 		}
-		return "Pause In this test";
+		return "Pause in This Item";
 	}
 
 	@Override
