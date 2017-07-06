@@ -3,7 +3,6 @@ package org.jsystemtest;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -38,7 +37,7 @@ public class PauseBBContextMenuPlugin implements ContextMenuPlugin, ExtendTestLi
 
 	private TestsTableController testsTableController;
 
-	private final List<JTest> selectedTests = new ArrayList<JTest>();
+	private final List<JTest> selectedTests = new TestList();
 
 	private ImageIcon pauseIcon;
 
@@ -65,6 +64,8 @@ public class PauseBBContextMenuPlugin implements ContextMenuPlugin, ExtendTestLi
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		testsTableController.getTree().setCellRenderer(new ScenarioRendererWithPause(selectedTests));
 	}
 
 	@Override
@@ -84,8 +85,9 @@ public class PauseBBContextMenuPlugin implements ContextMenuPlugin, ExtendTestLi
 		if (onSelectedTests) {
 			return "Continue in This Item";
 		}
-		return "Pause in This Item";
+		return "Pause Before This Item";
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -117,6 +119,7 @@ public class PauseBBContextMenuPlugin implements ContextMenuPlugin, ExtendTestLi
 	public void scenarioChanged(Scenario current, ScenarioChangeType changeType) {
 		switch (changeType) {
 		case CURRENT:
+		case RESET_DIRTY:
 		case NEW:
 			selectedTests.clear();
 		default:
