@@ -4,11 +4,13 @@
 	<groupId>org.jsystemtest</groupId>
 	<artifactId>jsystem-bb-pause-plugin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<properties>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<topq.repository.rootUrl>http://maven.top-q.co.il</topq.repository.rootUrl>
 	</properties>
+
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
