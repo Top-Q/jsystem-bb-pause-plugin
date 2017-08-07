@@ -59,13 +59,15 @@ public class PauseBBContextMenuPlugin implements ContextMenuPlugin, ExtendTestLi
 		this.testsTableController = testsTableController;
 		try {
 			pauseIcon = new ImageIcon(
+			
 					IOUtils.toByteArray(getClass().getClassLoader().getResourceAsStream("pause.gif")));
 			playIcon = new ImageIcon(IOUtils.toByteArray(getClass().getClassLoader().getResourceAsStream("play.gif")));
+			
+			testsTableController.getTree().setCellRenderer(new ScenarioRendererWithPause(selectedTests));
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		testsTableController.getTree().setCellRenderer(new ScenarioRendererWithPause(selectedTests));
 	}
 
 	@Override
