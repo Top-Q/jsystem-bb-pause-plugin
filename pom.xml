@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>org.jsystemtest</groupId>
 			<artifactId>jsystemApp</artifactId>
-			<version>6.1.06-beta2-SNAPSHOT</version>
+			<version>6.1.06</version>
 		</dependency>
 	</dependencies>
 	<build>
